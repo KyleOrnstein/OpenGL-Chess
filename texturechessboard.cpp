@@ -256,7 +256,6 @@ int checkPawnCapW(string piece){
     for (int row = 0; row < 8; row++){
         for (int column = 0; column < 8; column++){
             if(chessboard[row][column] == piece){
-
                 if (chessboard[row-1][column-1].find("B") != std::string::npos && (row - 1 >= 0 && column -1 >= 0)){
                     return 1;
                 }
@@ -275,11 +274,11 @@ int checkPawnCapW(string piece){
 int checkPawnCapB(string piece){
     for (int row = 0; row < 8; row++){
         for (int column = 0; column < 8; column++){
-            if(chessboard[row][column].find(piece) != std::string::npos){
-                if (chessboard[row+1][column-1].find("W") != std::string::npos){
+            if(chessboard[row][column] == piece){
+                if (chessboard[row+1][column-1].find("W") != std::string::npos && (row + 1 <= 7 && column -1 >= 0)){
                     return 1;
                 }
-                else if(chessboard[row+1][column+1].find("W") != std::string::npos){
+                else if(chessboard[row+1][column+1].find("W") != std::string::npos && (row + 1 <= 7 && column + 1 <= 7)){
                     return 2;
                 }
                 else{
@@ -339,7 +338,6 @@ void MoveCapPawnW2(void){
         for (int row = 0; row < 8; row++){
             for (int column = 0; column < 8; column++){
                 if(chessboard[row][column].find("pawnW2") != std::string::npos){
-                    cout << "checkPawnCapW(pawnW2)" << checkPawnCapW("pawnW2") << endl;
                     if (checkPawnCapW("pawnW2") == 1) {
                         setCaptures(chessboard[row-1][column-1]);
                         chessboard[row-1][column-1] = chessboard[row][column];
@@ -395,7 +393,452 @@ void MoveCapPawnW3(void){
     glutPostRedisplay();
 }
 
+void MoveCapPawnW4(void){
+    if (counter < 5){
+        movePawnW4y += .5;
+        if (checkPawnCapW("pawnW4") == 1) movePawnW4x -= .5;
+        else if (checkPawnCapW("pawnW4") == 2) movePawnW4x += .5;
+        counter++;
+    }
+    else{
+        capPawnW4Move = 0;
+        counter = 0;
+        changeTurn = 1;
+        for (int row = 0; row < 8; row++){
+            for (int column = 0; column < 8; column++){
+                if(chessboard[row][column].find("pawnW4") != std::string::npos){
+                    if (checkPawnCapW("pawnW4") == 1) {
+                        setCaptures(chessboard[row-1][column-1]);
+                        chessboard[row-1][column-1] = chessboard[row][column];
+                        chessboard[row][column] = "empty";
+                    }
+                    else if (checkPawnCapW("pawnW4") == 2) {
+                        setCaptures(chessboard[row-1][column+1]);
+                        chessboard[row-1][column+1] = chessboard[row][column];
+                        chessboard[row][column] = "empty";
+                        
+                    }
+                    doneOnce = 1;
+                }
+            }
+        }
+        doneOnce = 0;
+    }
+    glutPostRedisplay();
+}
 
+void MoveCapPawnW5(void){
+    if (counter < 5){
+        movePawnW5y += .5;
+        if (checkPawnCapW("pawnW5") == 1) movePawnW5x -= .5;
+        else if (checkPawnCapW("pawnW5") == 2) movePawnW5x += .5;
+        counter++;
+    }
+    else{
+        capPawnW5Move = 0;
+        counter = 0;
+        changeTurn = 1;
+        for (int row = 0; row < 8; row++){
+            for (int column = 0; column < 8; column++){
+                if(chessboard[row][column].find("pawnW5") != std::string::npos){
+                    if (checkPawnCapW("pawnW5") == 1) {
+                        setCaptures(chessboard[row-1][column-1]);
+                        chessboard[row-1][column-1] = chessboard[row][column];
+                        chessboard[row][column] = "empty";
+                    }
+                    else if (checkPawnCapW("pawnW5") == 2) {
+                        setCaptures(chessboard[row-1][column+1]);
+                        chessboard[row-1][column+1] = chessboard[row][column];
+                        chessboard[row][column] = "empty";
+                        
+                    }
+                    doneOnce = 1;
+                }
+            }
+        }
+        doneOnce = 0;
+    }
+    glutPostRedisplay();
+}
+
+void MoveCapPawnW6(void){
+    if (counter < 5){
+        movePawnW6y += .5;
+        if (checkPawnCapW("pawnW6") == 1) movePawnW6x -= .5;
+        else if (checkPawnCapW("pawnW6") == 2) movePawnW6x += .5;
+        counter++;
+    }
+    else{
+        capPawnW6Move = 0;
+        counter = 0;
+        changeTurn = 1;
+        for (int row = 0; row < 8; row++){
+            for (int column = 0; column < 8; column++){
+                if(chessboard[row][column].find("pawnW6") != std::string::npos){
+                    if (checkPawnCapW("pawnW6") == 1) {
+                        setCaptures(chessboard[row-1][column-1]);
+                        chessboard[row-1][column-1] = chessboard[row][column];
+                        chessboard[row][column] = "empty";
+                    }
+                    else if (checkPawnCapW("pawnW6") == 2) {
+                        setCaptures(chessboard[row-1][column+1]);
+                        chessboard[row-1][column+1] = chessboard[row][column];
+                        chessboard[row][column] = "empty";
+                        
+                    }
+                    doneOnce = 1;
+                }
+            }
+        }
+        doneOnce = 0;
+    }
+    glutPostRedisplay();
+}
+
+void MoveCapPawnW7(void){
+    if (counter < 5){
+        movePawnW7y += .5;
+        if (checkPawnCapW("pawnW7") == 1) movePawnW7x -= .5;
+        else if (checkPawnCapW("pawnW7") == 2) movePawnW7x += .5;
+        counter++;
+    }
+    else{
+        capPawnW7Move = 0;
+        counter = 0;
+        changeTurn = 1;
+        for (int row = 0; row < 8; row++){
+            for (int column = 0; column < 8; column++){
+                if(chessboard[row][column].find("pawnW7") != std::string::npos){
+                    if (checkPawnCapW("pawnW7") == 1) {
+                        setCaptures(chessboard[row-1][column-1]);
+                        chessboard[row-1][column-1] = chessboard[row][column];
+                        chessboard[row][column] = "empty";
+                    }
+                    else if (checkPawnCapW("pawnW7") == 2) {
+                        setCaptures(chessboard[row-1][column+1]);
+                        chessboard[row-1][column+1] = chessboard[row][column];
+                        chessboard[row][column] = "empty";
+                        
+                    }
+                    doneOnce = 1;
+                }
+            }
+        }
+        doneOnce = 0;
+    }
+    glutPostRedisplay();
+}
+
+void MoveCapPawnW8(void){
+    if (counter < 5){
+        movePawnW8y += .5;
+        if (checkPawnCapW("pawnW8") == 1) movePawnW8x -= .5;
+        else if (checkPawnCapW("pawnW8") == 2) movePawnW8x += .5;
+        counter++;
+    }
+    else{
+        capPawnW8Move = 0;
+        counter = 0;
+        changeTurn = 1;
+        for (int row = 0; row < 8; row++){
+            for (int column = 0; column < 8; column++){
+                if(chessboard[row][column].find("pawnW8") != std::string::npos){
+                    if (checkPawnCapW("pawnW8") == 1) {
+                        cout << "cap 1" << endl;
+                        setCaptures(chessboard[row-1][column-1]);
+                        chessboard[row-1][column-1] = chessboard[row][column];
+                        chessboard[row][column] = "empty";
+                    }
+                    else if (checkPawnCapW("pawnW8") == 2) {
+                        cout << "cap 2" << endl;
+                        setCaptures(chessboard[row-1][column+1]);
+                        chessboard[row-1][column+1] = chessboard[row][column];
+                        chessboard[row][column] = "empty";
+                        
+                    }
+                    doneOnce = 1;
+                }
+            }
+        }
+        doneOnce = 0;
+    }
+    glutPostRedisplay();
+}
+
+void MoveCapPawnB1(void){
+    if (counter < 5){
+        movePawnB1y -= .5;
+        if (checkPawnCapB("pawnB1") == 1) movePawnB1x -= .5;
+        else if (checkPawnCapB("pawnB1") == 2) movePawnB1x += .5;
+        counter++;
+    }
+    else{
+        capPawnB1Move = 0;
+        counter = 0;
+        changeTurn = 1;
+        for (int row = 0; row < 8; row++){
+            for (int column = 0; column < 8; column++){
+                if(chessboard[row][column].find("pawnB1") != std::string::npos){
+                    if (checkPawnCapB("pawnB1") == 1) {
+                        setCaptures(chessboard[row+1][column-1]);
+                        chessboard[row+1][column-1] = chessboard[row][column];
+                        chessboard[row][column] = "empty";
+                    }
+                    if (checkPawnCapB("pawnB1") == 2) {
+                        setCaptures(chessboard[row+1][column+1]);
+                        chessboard[row+1][column+1] = chessboard[row][column];
+                        chessboard[row][column] = "empty";
+                        
+                    }
+                    doneOnce = 1;
+                }
+            }
+        }
+        doneOnce = 0;
+    }
+    glutPostRedisplay();
+}
+
+void MoveCapPawnB2(void){
+    if (counter < 5){
+        movePawnB2y -= .5;
+        if (checkPawnCapB("pawnB2") == 1) movePawnB2x -= .5;
+        else if (checkPawnCapB("pawnB2") == 2) movePawnB2x += .5;
+        counter++;
+    }
+    else{
+        capPawnB2Move = 0;
+        counter = 0;
+        changeTurn = 1;
+        for (int row = 0; row < 8; row++){
+            for (int column = 0; column < 8; column++){
+                if(chessboard[row][column].find("pawnB2") != std::string::npos){
+                    if (checkPawnCapB("pawnB2") == 1) {
+                        setCaptures(chessboard[row+1][column-1]);
+                        chessboard[row+1][column-1] = chessboard[row][column];
+                        chessboard[row][column] = "empty";
+                    }
+                    else if (checkPawnCapB("pawnB2") == 2) {
+                        setCaptures(chessboard[row+1][column+1]);
+                        chessboard[row+1][column+1] = chessboard[row][column];
+                        chessboard[row][column] = "empty";
+                        
+                    }
+                    doneOnce = 1;
+                }
+            }
+        }
+        doneOnce = 0;
+    }
+    glutPostRedisplay();
+}
+
+void MoveCapPawnB3(void){
+    if (counter < 5){
+        movePawnB3y -= .5;
+        if (checkPawnCapB("pawnB3") == 1) movePawnB3x -= .5;
+        else if (checkPawnCapB("pawnB3") == 2) movePawnB3x += .5;
+        counter++;
+    }
+    else{
+        capPawnB3Move = 0;
+        counter = 0;
+        changeTurn = 1;
+        for (int row = 0; row < 8; row++){
+            for (int column = 0; column < 8; column++){
+                if(chessboard[row][column].find("pawnB3") != std::string::npos){
+                    cout << "checkPawnCapB(pawnB3)" << checkPawnCapB("pawnB3") << endl;
+                    if (checkPawnCapB("pawnB3") == 1) {
+                        setCaptures(chessboard[row+1][column-1]);
+                        chessboard[row+1][column-1] = chessboard[row][column];
+                        chessboard[row][column] = "empty";
+                    }
+                    else if (checkPawnCapB("pawnB3") == 2) {
+                        setCaptures(chessboard[row+1][column+1]);
+                        chessboard[row+1][column+1] = chessboard[row][column];
+                        chessboard[row][column] = "empty";
+                        
+                    }
+                    doneOnce = 1;
+                }
+            }
+        }
+        doneOnce = 0;
+    }
+    glutPostRedisplay();
+}
+
+void MoveCapPawnB4(void){
+    if (counter < 5){
+        movePawnB4y -= .5;
+        if (checkPawnCapB("pawnB4") == 1) movePawnB4x -= .5;
+        else if (checkPawnCapB("pawnB4") == 2) movePawnB4x += .5;
+        counter++;
+    }
+    else{
+        capPawnB4Move = 0;
+        counter = 0;
+        changeTurn = 1;
+        for (int row = 0; row < 8; row++){
+            for (int column = 0; column < 8; column++){
+                if(chessboard[row][column].find("pawnB4") != std::string::npos){
+                    if (checkPawnCapB("pawnB4") == 1) {
+                        setCaptures(chessboard[row+1][column-1]);
+                        chessboard[row+1][column-1] = chessboard[row][column];
+                        chessboard[row][column] = "empty";
+                    }
+                    else if (checkPawnCapB("pawnB4") == 2) {
+                        setCaptures(chessboard[row+1][column+1]);
+                        chessboard[row+1][column+1] = chessboard[row][column];
+                        chessboard[row][column] = "empty";
+                        
+                    }
+                    doneOnce = 1;
+                }
+            }
+        }
+        doneOnce = 0;
+    }
+    glutPostRedisplay();
+}
+
+void MoveCapPawnB5(void){
+    if (counter < 5){
+        movePawnB5y -= .5;
+        if (checkPawnCapB("pawnB5") == 1) movePawnB5x -= .5;
+        else if (checkPawnCapB("pawnB5") == 2) movePawnB5x += .5;
+        counter++;
+    }
+    else{
+        capPawnB5Move = 0;
+        counter = 0;
+        changeTurn = 1;
+        for (int row = 0; row < 8; row++){
+            for (int column = 0; column < 8; column++){
+                if(chessboard[row][column].find("pawnB5") != std::string::npos){
+                    if (checkPawnCapB("pawnB5") == 1) {
+                        setCaptures(chessboard[row+1][column-1]);
+                        chessboard[row+1][column-1] = chessboard[row][column];
+                        chessboard[row][column] = "empty";
+                    }
+                    else if (checkPawnCapB("pawnB5") == 2) {
+                        setCaptures(chessboard[row+1][column+1]);
+                        chessboard[row+1][column+1] = chessboard[row][column];
+                        chessboard[row][column] = "empty";
+                        
+                    }
+                    doneOnce = 1;
+                }
+            }
+        }
+        doneOnce = 0;
+    }
+    glutPostRedisplay();
+}
+
+void MoveCapPawnB6(void){
+    if (counter < 5){
+        movePawnB6y -= .5;
+        if (checkPawnCapB("pawnB6") == 1) movePawnB6x -= .5;
+        else if (checkPawnCapB("pawnB6") == 2) movePawnB6x += .5;
+        counter++;
+    }
+    else{
+        capPawnB6Move = 0;
+        counter = 0;
+        changeTurn = 1;
+        for (int row = 0; row < 8; row++){
+            for (int column = 0; column < 8; column++){
+                if(chessboard[row][column].find("pawnB6") != std::string::npos){
+                    if (checkPawnCapB("pawnB6") == 1) {
+                        setCaptures(chessboard[row+1][column-1]);
+                        chessboard[row+1][column-1] = chessboard[row][column];
+                        chessboard[row][column] = "empty";
+                    }
+                    else if (checkPawnCapB("pawnB6") == 2) {
+                        setCaptures(chessboard[row+1][column+1]);
+                        chessboard[row+1][column+1] = chessboard[row][column];
+                        chessboard[row][column] = "empty";
+                        
+                    }
+                    doneOnce = 1;
+                }
+            }
+        }
+        doneOnce = 0;
+    }
+    glutPostRedisplay();
+}
+
+void MoveCapPawnB7(void){
+    if (counter < 5){
+        movePawnB7y -= .5;
+        if (checkPawnCapB("pawnB7") == 1) movePawnB7x -= .5;
+        else if (checkPawnCapB("pawnB7") == 2) movePawnB7x += .5;
+        counter++;
+    }
+    else{
+        capPawnB7Move = 0;
+        counter = 0;
+        changeTurn = 1;
+        for (int row = 0; row < 8; row++){
+            for (int column = 0; column < 8; column++){
+                if(chessboard[row][column].find("pawnB7") != std::string::npos){
+                    if (checkPawnCapB("pawnB7") == 1) {
+                        setCaptures(chessboard[row+1][column-1]);
+                        chessboard[row+1][column-1] = chessboard[row][column];
+                        chessboard[row][column] = "empty";
+                    }
+                    else if (checkPawnCapB("pawnB7") == 2) {
+                        setCaptures(chessboard[row+1][column+1]);
+                        chessboard[row+1][column+1] = chessboard[row][column];
+                        chessboard[row][column] = "empty";
+                        
+                    }
+                    doneOnce = 1;
+                }
+            }
+        }
+        doneOnce = 0;
+    }
+    glutPostRedisplay();
+}
+
+void MoveCapPawnB8(void){
+    if (counter < 5){
+        movePawnB8y -= .5;
+        if (checkPawnCapB("pawnB8") == 1) movePawnB8x -= .5;
+        else if (checkPawnCapB("pawnB8") == 2) movePawnB8x += .5;
+        counter++;
+    }
+    else{
+        capPawnB8Move = 0;
+        counter = 0;
+        changeTurn = 1;
+        for (int row = 0; row < 8; row++){
+            for (int column = 0; column < 8; column++){
+                if(chessboard[row][column].find("pawnB8") != std::string::npos){
+                    if (checkPawnCapB("pawnB8") == 1) {
+                        cout << "cap 1" << endl;
+                        setCaptures(chessboard[row+1][column-1]);
+                        chessboard[row+1][column-1] = chessboard[row][column];
+                        chessboard[row][column] = "empty";
+                    }
+                    else if (checkPawnCapB("pawnB8") == 2) {
+                        cout << "cap 2" << endl;
+                        setCaptures(chessboard[row+1][column+1]);
+                        chessboard[row+1][column+1] = chessboard[row][column];
+                        chessboard[row][column] = "empty";
+                        
+                    }
+                    doneOnce = 1;
+                }
+            }
+        }
+        doneOnce = 0;
+    }
+    glutPostRedisplay();
+}
 
 void movePawnW1(void){
     if (checkPawnMovefreeW("pawnW1")) {
@@ -410,14 +853,16 @@ void movePawnW1(void){
             for (int row = 0; row < 8; row++){
                 for (int column = 0; column < 8; column++){
                     if(chessboard[row][column].find("pawnW1") != std::string::npos){
-                        if (chessboard[row-1][column-1] == "empty"){
+                        if (chessboard[row-1][column-1] == "empty" && !doneOnce){
                             temp = chessboard[row][column];
                             chessboard[row][column] = chessboard[row-1][column];
                             chessboard[row-1][column] = temp;
+                            doneOnce = 1;
                         }
                     }
                 }
             }
+            doneOnce = 0;
         }
     }
     else
@@ -438,14 +883,16 @@ void movePawnW2(void){
             for (int row = 0; row < 8; row++){
                 for (int column = 0; column < 8; column++){
                     if(chessboard[row][column].find("pawnW2") != std::string::npos){
-                        if (chessboard[row-1][column] == "empty"){
+                        if (chessboard[row-1][column] == "empty" && !doneOnce){
                             temp = chessboard[row][column];
                             chessboard[row][column] = chessboard[row-1][column];
                             chessboard[row-1][column] = temp;
+                            doneOnce = 1;
                         }
                     }
                 }
             }
+            doneOnce = 0;
         }
     }
     glutPostRedisplay();
@@ -464,14 +911,16 @@ void movePawnW3(void){
             for (int row = 0; row < 8; row++){
                 for (int column = 0; column < 8; column++){
                     if(chessboard[row][column].find("pawnW3") != std::string::npos){
-                        if (chessboard[row-1][column] == "empty"){
+                        if (chessboard[row-1][column] == "empty" && !doneOnce){
                             temp = chessboard[row][column];
                             chessboard[row][column] = chessboard[row-1][column];
                             chessboard[row-1][column] = temp;
+                            doneOnce = 1;
                         }
                     }
                 }
             }
+            doneOnce = 0;
         }
     }
     glutPostRedisplay();
@@ -490,14 +939,16 @@ void movePawnW4(void){
             for (int row = 0; row < 8; row++){
                 for (int column = 0; column < 8; column++){
                     if(chessboard[row][column].find("pawnW4") != std::string::npos){
-                        if (chessboard[row-1][column] == "empty"){
+                        if (chessboard[row-1][column] == "empty" && !doneOnce){
                             temp = chessboard[row][column];
                             chessboard[row][column] = chessboard[row-1][column];
                             chessboard[row-1][column] = temp;
+                            doneOnce = 1;
                         }
                     }
                 }
             }
+            doneOnce = 0;
         }
     }
     glutPostRedisplay();
@@ -516,14 +967,16 @@ void movePawnW5(void){
             for (int row = 0; row < 8; row++){
                 for (int column = 0; column < 8; column++){
                     if(chessboard[row][column].find("pawnW5") != std::string::npos){
-                        if (chessboard[row-1][column] == "empty"){
+                        if (chessboard[row-1][column] == "empty" && !doneOnce){
                             temp = chessboard[row][column];
                             chessboard[row][column] = chessboard[row-1][column];
                             chessboard[row-1][column] = temp;
+                            doneOnce = 1;
                         }
                     }
                 }
             }
+            doneOnce = 0;
         }
     }
     glutPostRedisplay();
@@ -542,14 +995,16 @@ void movePawnW6(void){
             for (int row = 0; row < 8; row++){
                 for (int column = 0; column < 8; column++){
                     if(chessboard[row][column].find("pawnW6") != std::string::npos){
-                        if (chessboard[row-1][column] == "empty"){
+                        if (chessboard[row-1][column] == "empty" && !doneOnce){
                             temp = chessboard[row][column];
                             chessboard[row][column] = chessboard[row-1][column];
                             chessboard[row-1][column] = temp;
+                            doneOnce = 1;
                         }
                     }
                 }
             }
+            doneOnce = 0;
         }
     }
     glutPostRedisplay();
@@ -568,14 +1023,16 @@ void movePawnW7(void){
             for (int row = 0; row < 8; row++){
                 for (int column = 0; column < 8; column++){
                     if(chessboard[row][column].find("pawnW7") != std::string::npos){
-                        if (chessboard[row-1][column] == "empty"){
+                        if (chessboard[row-1][column] == "empty" && !doneOnce){
                             temp = chessboard[row][column];
                             chessboard[row][column] = chessboard[row-1][column];
                             chessboard[row-1][column] = temp;
+                            doneOnce = 1;
                         }
                     }
                 }
             }
+            doneOnce = 0;
         }
     }
     glutPostRedisplay();
@@ -594,14 +1051,16 @@ void movePawnW8(void){
             for (int row = 0; row < 8; row++){
                 for (int column = 0; column < 8; column++){
                     if(chessboard[row][column].find("pawnW8") != std::string::npos){
-                        if (chessboard[row-1][column] == "empty"){
+                        if (chessboard[row-1][column] == "empty" && !doneOnce){
                             temp = chessboard[row][column];
                             chessboard[row][column] = chessboard[row-1][column];
                             chessboard[row-1][column] = temp;
+                            doneOnce = 1;
                         }
                     }
                 }
             }
+            doneOnce = 0;
         }
     }
     glutPostRedisplay();
@@ -852,6 +1311,19 @@ void animate(int someValue) {
     if (capPawnW1Move) MoveCapPawnW1();
     if (capPawnW2Move) MoveCapPawnW2();
     if (capPawnW3Move) MoveCapPawnW3();
+    if (capPawnW4Move) MoveCapPawnW4();
+    if (capPawnW5Move) MoveCapPawnW5();
+    if (capPawnW6Move) MoveCapPawnW6();
+    if (capPawnW7Move) MoveCapPawnW7();
+    if (capPawnW8Move) MoveCapPawnW8();
+    if (capPawnB1Move) MoveCapPawnB1();
+    if (capPawnB2Move) MoveCapPawnB2();
+    if (capPawnB3Move) MoveCapPawnB3();
+    if (capPawnB4Move) MoveCapPawnB4();
+    if (capPawnB5Move) MoveCapPawnB5();
+    if (capPawnB6Move) MoveCapPawnB6();
+    if (capPawnB7Move) MoveCapPawnB7();
+    if (capPawnB8Move) MoveCapPawnB8();
     glutTimerFunc(animationPeriod, animate, 1);
 }
 
@@ -977,14 +1449,15 @@ void drawKing(double x, double y, double z, int c) {
 }
 
 void drawQueen(double x, double y, double z, char c) {
-    if(c == 'w')
+    if(c == 1)
         glColor3f(0.961, 0.961, 0.961);
-    else if(c == 'b')
+    else if(c == 2)
         glColor3f(0, 0, 0);
-    else if (c == 'p')
-        glColor3f(0.804, 0.522, 0.247);
-    else if (c == 'c')
+    else if (c == 3)
         glColor3f(1.000, 0.973, 0.863);
+    else if (c == 4)
+        glColor3f(0.804, 0.522, 0.247);
+
     
     //bottom up
     glPushMatrix();//1
@@ -2500,45 +2973,87 @@ void mousePicking(int button, int state, int x, int y) {
                     PawnW3Move = 1;
             }
             if (closestName == 10){
-                PawnW4Move = 1;
+                if(checkPawnCapW("pawnW4") != 0)
+                    capPawnW4Move = 1;
+                else
+                    PawnW4Move = 1;
             }
             if (closestName == 11){
-                PawnW5Move = 1;
+                if(checkPawnCapW("pawnW5") != 0)
+                    capPawnW5Move = 1;
+                else
+                    PawnW5Move = 1;
             }
             if (closestName == 12){
-                PawnW6Move = 1;
+                if(checkPawnCapW("pawnW6") != 0)
+                    capPawnW6Move = 1;
+                else
+                    PawnW6Move = 1;
             }
             if (closestName == 13){
-                PawnW7Move = 1;
+                if(checkPawnCapW("pawnW7") != 0)
+                    capPawnW7Move = 1;
+                else
+                    PawnW7Move = 1;
             }
             if (closestName == 14){
-                PawnW8Move = 1;
+                if (checkPawnCapW("pawnW8") != 0)
+                    capPawnW8Move = 1;
+                else
+                    PawnW8Move = 1;
             }
         }
         if (!whiteTurn){
             if (closestName == 15){
-                PawnB1Move = 1;
+                if (checkPawnCapB("pawnB1") != 0){
+                    capPawnB1Move = 1;
+                }
+                else if(checkPawnCapB("pawnB1") == 0)
+                    PawnB1Move = 1;
             }
             if (closestName == 16){
-                PawnB2Move = 1;
+                if (checkPawnCapB("pawnB2") != 0){
+                    capPawnB2Move = 1;
+                }
+                else {
+                    PawnB2Move = 1;
+                }
             }
             if (closestName == 17){
-                PawnB3Move = 1;
+                if (checkPawnCapB("pawnB3") != 0)
+                    capPawnB3Move = 1;
+                else
+                    PawnB3Move = 1;
             }
             if (closestName == 18){
-                PawnB4Move = 1;
+                if(checkPawnCapB("pawnB4") != 0)
+                    capPawnB4Move = 1;
+                else
+                    PawnB4Move = 1;
             }
             if (closestName == 19){
-                PawnB5Move = 1;
+                if(checkPawnCapB("pawnB5") != 0)
+                    capPawnB5Move = 1;
+                else
+                    PawnB5Move = 1;
             }
             if (closestName == 20){
-                PawnB6Move = 1;
+                if(checkPawnCapB("pawnB6") != 0)
+                    capPawnB6Move = 1;
+                else
+                    PawnB6Move = 1;
             }
             if (closestName == 21){
-                PawnB7Move = 1;
+                if(checkPawnCapB("pawnB7") != 0)
+                    capPawnB7Move = 1;
+                else
+                    PawnB7Move = 1;
             }
             if (closestName == 22){
-                PawnB8Move = 1;
+                if (checkPawnCapB("pawnB8") != 0)
+                    capPawnB8Move = 1;
+                else
+                    PawnB8Move = 1;
             }
         }
         glMatrixMode(GL_PROJECTION);
